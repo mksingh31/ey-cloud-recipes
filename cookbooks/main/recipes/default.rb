@@ -111,6 +111,9 @@
 #uncomment to include the Magento recipe
 #include_recipe "magento"
 
+#uncomment to include the rds recipe
+include_recipe "rds"
+
 #enable Extension modules for a given Postgresql database
 # if ['solo','db_master', 'db_slave'].include?(node[:instance_role])
   # Extensions that support Postgres >= 9.0

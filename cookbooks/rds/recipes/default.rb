@@ -27,11 +27,11 @@ if ['solo', 'app_master', 'app', 'util'].include?(node[:instance_role])
       source 'database.yml.erb'
       variables({
         :environment => node[:environment][:framework_env],
-        :adapter => attributes[:adapter],
-        :database => attributes[:database],
-        :username => attributes[:username],
-        :password => attributes[:password],
-        :host => attributes[:host]
+        :adapter => 'mysql2',
+        :database => app[:database_name],
+        :username => node[:users][0][:username],
+        :password => node[:users][0][:password],
+        :host => node[:db_host]
       })
     end
   end
